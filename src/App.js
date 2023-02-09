@@ -1,11 +1,18 @@
 import UserInfo from "./components/UsersInfo";
 import UserList from "./components/UsersList";
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const ref = useRef(null);
+
+  const handleScrollClick = () => {
+    if (window.innerWidth < 640) {
+      ref.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const api = axios.create({
     baseURL: "https://602e7c2c4410730017c50b9d.mockapi.io/users",
@@ -13,6 +20,7 @@ function App() {
 
   const getData = useCallback(async () => {
     try {
+      setIsLoading(true);
       let data = await api.get("/").then((data) => data.data);
       setData(data);
       setIsLoading(false);
@@ -22,16 +30,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
     getData();
   }, [getData]);
 
   return (
     <div className="flex flex-col sm:flex-row justify-between gap-7 p-8 sm:p-14">
       <div className="flex-initial sm:w-1/2">
-        <UserList users={data} isLoading={isLoading} />
+        <UserList
+          users={data}
+          isLoading={isLoading}
+          handleScrollClick={handleScrollClick}
+        />
       </div>
-      <div className="flex-1 sm:w-1/2">
+      <div className="flex-1 sm:w-1/2" ref={ref}>
         <UserInfo users={data} isLoading={isLoading} />
       </div>
     </div>

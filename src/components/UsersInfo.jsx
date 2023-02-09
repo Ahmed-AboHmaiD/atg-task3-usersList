@@ -18,7 +18,7 @@ const UserInfo = ({ users, isLoading }) => {
           .filter((user) => user.id === id)
           .map((user) => <UserDetails key={user.id} user={user} />)
       ) : (
-        <h1 className="mt-10 sm:mt-40 text-xl font-semibold">
+        <h1 className="mt-10 sm:mt-40 text-lg md:text-xl font-semibold">
           Click on a user to display their information.
         </h1>
       )}
