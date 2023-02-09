@@ -35,14 +35,14 @@ function App() {
 
   return (
     <div className="flex flex-col sm:flex-row justify-between gap-7 p-8 sm:p-14">
-      <div className="flex-initial sm:w-1/2">
+      <div className="sm:w-1/2 flex-1">
         <UserList
           users={data}
           isLoading={isLoading}
           handleScrollClick={handleScrollClick}
         />
       </div>
-      <div className="flex-1 sm:w-1/2" ref={ref}>
+      <div className="sm:w-1/2" ref={ref}>
         <UserInfo users={data} isLoading={isLoading} />
       </div>
     </div>

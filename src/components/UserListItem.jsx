@@ -6,7 +6,7 @@ const UserListItem = ({ user, handleScrollClick }) => {
     <div onClick={handleScrollClick}>
       <Link
         to={`/user/${user.id}`}
-        className="mt-3 px-4 shadow-sm bg-slate-100 w-full py-3 cursor-pointer rounded-sm flex items-center relative transition-all duration-100 ease-in focus:bg-slate-200 before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-full before:bg-slate-200 before:-z-10 z-10 before:transition-all before:duration-300 hover:before:w-full"
+        className="mt-3 px-4 shadow-sm bg-slate-100 w-full py-3 cursor-pointer rounded-sm flex items-center relative transition-all duration-100 ease-in focus:bg-gray-50 before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-full before:bg-slate-200 before:-z-10 z-10 before:transition-all before:duration-200 before:rounded-sm hover:before:w-full"
       >
         <div>
           <img
