@@ -8,7 +8,7 @@ const UserInfo = ({ users, isLoading, isError }) => {
   const { id } = useParams();
 
   return (
-    <div className="flex flex-col justify-center bg-slate-50/40 relative text-center w-full text-sm md:text-lg">
+    <div className="flex flex-col justify-center bg-slate-50/40 dark:bg-col dark:text-white relative text-center w-full text-sm md:text-lg">
       <div className="uppercase rounded-tr-md rounded-tl-md bg-custom_1 text-white font-bold p-2">
         Users Details
       </div>

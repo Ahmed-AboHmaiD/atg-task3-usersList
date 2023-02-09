@@ -41,9 +41,9 @@ export const Error = () => {
           animate={{ rotate: 0, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <BiError className="text-5xl" />
+          <BiError className="text-5xl dark:text-white" />
         </motion.div>
-        <p className="text-lg">Error, no data to show</p>
+        <p className="text-lg dark:text-white">Error, no data to show</p>
       </motion.div>
     </>
   );

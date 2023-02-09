@@ -15,7 +15,7 @@ const UserDetailsItem = ({ info }) => {
       <motion.p
         initial={{ y: 100 }}
         animate={{ y: 0 }}
-        className="ml-8 mt-1 bg-custom_2 py-3 px-2 rounded-md shadow-sm font-medium"
+        className="ml-8 mt-1 bg-custom_2 dark:bg-dark_2 py-3 px-2 rounded-md shadow-sm font-medium"
       >
         {info.text}
       </motion.p>

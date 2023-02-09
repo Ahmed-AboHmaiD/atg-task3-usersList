@@ -2,6 +2,7 @@ import UserInfo from "./components/UsersInfo";
 import UserList from "./components/UsersList";
 import axios from "axios";
 import { useCallback, useEffect, useRef, useState } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [data, setData] = useState([]);
@@ -25,6 +26,7 @@ function App() {
       let data = await api.get("/").then((data) => data.data);
       setData(data);
       setIsLoading(false);
+      setIsError(false);
     } catch (err) {
       setIsError(true);
     }
@@ -35,19 +37,24 @@ function App() {
   }, [getData]);
 
   return (
-    <div className="flex flex-col sm:flex-row justify-between gap-7 p-8 sm:p-14">
-      <div className="sm:w-1/2 flex-1 shadow-sm">
-        <UserList
-          users={data}
-          isLoading={isLoading}
-          isError={isError}
-          handleScrollClick={handleScrollClick}
-        />
+    <>
+      <div className="pt-8 pb-4 px-8 shadow-md">
+        <Navbar />
       </div>
-      <div className="sm:w-1/2 shadow-sm" ref={ref}>
-        <UserInfo users={data} isLoading={isLoading} isError={isError} />
+      <div className="flex flex-col sm:flex-row justify-between gap-7 p-8 sm:p-14">
+        <div className="sm:w-1/2 flex-1 shadow-sm">
+          <UserList
+            users={data}
+            isLoading={isLoading}
+            isError={isError}
+            handleScrollClick={handleScrollClick}
+          />
+        </div>
+        <div className="sm:w-1/2 shadow-sm" ref={ref}>
+          <UserInfo users={data} isLoading={isLoading} isError={isError} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

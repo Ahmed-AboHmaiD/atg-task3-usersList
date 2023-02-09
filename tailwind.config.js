@@ -1,6 +1,6 @@
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
-  darkMode: false,
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -8,6 +8,16 @@ module.exports = {
         custom_2: "#EEE9DA",
         custom_3: "#FFFBF5",
         custom_4: "#BDCDD6",
+        inputR: "hsl(210, 78%, 56%)",
+        inputL: "hsl(146, 68%, 55%)",
+        dark_1: "#1e202a",
+        dark_2: "#365563",
+        col: "hsl(232, 19%, 15%)",
+        colItem: "#24344C",
+        colItemHover: "hsl(228 28% 20%)",
+      },
+      spacing: {
+        input: "-2em",
       },
       container: {
         padding: {

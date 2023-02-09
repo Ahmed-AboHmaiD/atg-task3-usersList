@@ -7,8 +7,7 @@ const Spinner = ({ message }) => {
       <div className="mt-8 mb-5">
         <Loader.Circles color="#00bfff" height={50} width={200} />
       </div>
-
-      <p className="text-xl text-center px-2">{message}</p>
+      <p className="text-xl text-center px-2 dark:text-white">{message}</p>
     </div>
   );
 };
