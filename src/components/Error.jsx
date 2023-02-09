@@ -2,6 +2,7 @@ import React from "react";
 import { BiError } from "react-icons/bi";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 
 export const Error = () => {
   toast.error("Sorry, an error happened.", {
@@ -30,10 +31,20 @@ export const Error = () => {
         pauseOnHover
         theme="light"
       />
-      <div className="mt-6 font-semibold flex flex-col items-center">
-        <BiError className="text-5xl" />
+      <motion.div
+        className="mt-6 font-semibold flex flex-col items-center"
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+      >
+        <motion.div
+          initial={{ rotate: 90, scale: 0 }}
+          animate={{ rotate: 0, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <BiError className="text-5xl" />
+        </motion.div>
         <p className="text-lg">Error, no data to show</p>
-      </div>
+      </motion.div>
     </>
   );
 };

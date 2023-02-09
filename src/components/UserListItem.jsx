@@ -25,6 +25,7 @@ const UserListItem = ({ user, handleScrollClick }) => {
             className="rounded-full w-11 md:w-12"
             initial={{ rotate: 90 }}
             animate={{ rotate: 0 }}
+            transition={{ duration: 0.5 }}
           />
         </div>
         <motion.p
