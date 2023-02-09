@@ -1,12 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const UserListItem = ({ user, handleScrollClick }) => {
+  const notActiveClass =
+    "mt-3 px-4 shadow-md bg-slate-100 w-full py-3 cursor-pointer rounded-sm flex items-center relative transition-all duration-100 ease-in before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-full before:bg-gray-200/70 before:-z-10 z-10 before:transition-all before:duration-200 before:rounded-sm hover:before:w-full hover:-translate-y-[2px]";
+  const activeClass =
+    "bg-gray-200 mt-3 px-4 shadow-md w-full py-3 cursor-pointer rounded-sm flex items-center relative transition-all duration-100 ease-in before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-full before:bg-gray-200/70 before:-z-10 z-10 before:transition-all before:duration-200 before:rounded-sm hover:before:w-full hover:-translate-y-[2px]";
+
   return (
     <div onClick={handleScrollClick}>
-      <Link
+      <NavLink
         to={`/user/${user.id}`}
-        className="mt-3 px-4 shadow-sm bg-slate-100 w-full py-3 cursor-pointer rounded-sm flex items-center relative transition-all duration-100 ease-in focus:bg-gray-50 before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-full before:bg-slate-200 before:-z-10 z-10 before:transition-all before:duration-200 before:rounded-sm hover:before:w-full"
+        className={({ isActive }) => (isActive ? activeClass : notActiveClass)}
       >
         <div>
           <img
@@ -18,7 +23,7 @@ const UserListItem = ({ user, handleScrollClick }) => {
         <p className="ml-3 font-semibold">
           {user.profile.firstName} {user.profile.lastName}
         </p>
-      </Link>
+      </NavLink>
     </div>
   );
 };

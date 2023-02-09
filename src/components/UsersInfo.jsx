@@ -1,17 +1,20 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Error } from "./Error";
 import Spinner from "./Spinner";
 import UserDetails from "./UserDetails";
 
-const UserInfo = ({ users, isLoading }) => {
+const UserInfo = ({ users, isLoading, isError }) => {
   const { id } = useParams();
 
   return (
-    <div className="flex flex-col justify-center relative text-center w-full text-sm md:text-lg">
+    <div className="flex flex-col justify-center bg-slate-50/40 relative text-center w-full text-sm md:text-lg">
       <div className="uppercase rounded-tr-md rounded-tl-md bg-custom_1 text-white font-bold p-2">
         Users Details
       </div>
-      {isLoading ? (
+      {isError ? (
+        <Error />
+      ) : isLoading ? (
         <Spinner message="Loading User Details..." />
       ) : id ? (
         users

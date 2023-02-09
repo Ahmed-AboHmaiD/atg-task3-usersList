@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const ref = useRef(null);
 
   const handleScrollClick = () => {
@@ -25,7 +26,7 @@ function App() {
       setData(data);
       setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      setIsError(true);
     }
   }, []);
 
@@ -39,11 +40,12 @@ function App() {
         <UserList
           users={data}
           isLoading={isLoading}
+          isError={isError}
           handleScrollClick={handleScrollClick}
         />
       </div>
       <div className="sm:w-1/2" ref={ref}>
-        <UserInfo users={data} isLoading={isLoading} />
+        <UserInfo users={data} isLoading={isLoading} isError={isError} />
       </div>
     </div>
   );
