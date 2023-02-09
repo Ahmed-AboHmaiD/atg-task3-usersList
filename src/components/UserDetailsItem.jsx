@@ -1,15 +1,24 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const UserDetailsItem = ({info}) => {
+const UserDetailsItem = ({ info }) => {
   return (
     <div className="mt-6 text-left">
-      <p className="font-semibold flex items-center gap-1">
+      <motion.p
+        initial={{ x: 100 }}
+        animate={{ x: 0 }}
+        className="font-semibold flex items-center gap-1"
+      >
         <info.icon className="text-lg text-custom_1" />
         {info.title}:
-      </p>
-      <p className="ml-8 mt-1 bg-custom_2 py-3 px-2 rounded-md shadow-sm font-medium">
+      </motion.p>
+      <motion.p
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        className="ml-8 mt-1 bg-custom_2 py-3 px-2 rounded-md shadow-sm font-medium"
+      >
         {info.text}
-      </p>
+      </motion.p>
     </div>
   );
 };

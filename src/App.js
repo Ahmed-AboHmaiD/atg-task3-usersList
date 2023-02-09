@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="flex flex-col sm:flex-row justify-between gap-7 p-8 sm:p-14">
-      <div className="sm:w-1/2 flex-1">
+      <div className="sm:w-1/2 flex-1 shadow-sm">
         <UserList
           users={data}
           isLoading={isLoading}
@@ -44,7 +44,7 @@ function App() {
           handleScrollClick={handleScrollClick}
         />
       </div>
-      <div className="sm:w-1/2" ref={ref}>
+      <div className="sm:w-1/2 shadow-sm" ref={ref}>
         <UserInfo users={data} isLoading={isLoading} isError={isError} />
       </div>
     </div>
